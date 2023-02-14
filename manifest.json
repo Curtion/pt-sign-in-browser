@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "My Extension",
+  "version": "1.0",
+  "description": "This is a demo extension for Edge",
+  "icons": {
+    "48": "icon.jpg"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icon.jpg"
+    },
+    "default_title": "My Extension",
+    "default_popup": "popup.html"
+  }
+}
