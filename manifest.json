@@ -1,19 +1,24 @@
 {
   "manifest_version": 2,
-  "name": "My Extension",
+  "name": "PT站自动签到",
   "version": "1.0",
-  "description": "This is a demo extension for Edge",
+  "description": "PT站保号,防止被封禁",
   "icons": {
-    "48": "icon.jpg"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
-  "permissions": [
-    "activeTab"
-  ],
-  "browser_action": {
-    "default_icon": {
-      "48": "icon.jpg"
-    },
-    "default_title": "My Extension",
-    "default_popup": "popup.html"
+  "permissions": ["storage", "alarms","*://www.hdarea.co/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "curtion@126.com"
+    }
   }
 }
