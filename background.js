@@ -17,3 +17,5 @@ function sign() {
     console.log(res)
   })
 }
+// https://www.hdarea.co/takelogin.php POST
+// FormData  username password
