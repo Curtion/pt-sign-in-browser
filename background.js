@@ -16,7 +16,7 @@ let defaultJobs = [
 
 chrome.alarms.create("jobs", { when: Date.now(), periodInMinutes: 30 });
 chrome.alarms.onAlarm.addListener(async () => {
-  await runJobs()
+  await runJobs(true)
 });
 
 async function runJobs(debug) {
@@ -27,7 +27,7 @@ async function runJobs(debug) {
       console.log('开始执行任务：' + item.name)
       try {
         await eval(item.name + '()')
-        item.msg = '成功'
+        item.msg = ''
         item.status = currDate
         storage.set({ jobs })
       } catch (error) {
