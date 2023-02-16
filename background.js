@@ -2,13 +2,13 @@ const storage = chrome.storage.sync;
 let defaultJobs = [
   {
     name: 'hdarea',
-    enable: true,
+    enable: false,
     status: 0,
     msg: ''
   },
   {
     name: 'mteam',
-    enable: true,
+    enable: false,
     status: 0,
     msg: ''
   }
