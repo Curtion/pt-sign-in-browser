@@ -16,7 +16,7 @@ let defaultJobs = [
 
 chrome.alarms.create("jobs", { when: Date.now(), periodInMinutes: 30 });
 chrome.alarms.onAlarm.addListener(async () => {
-  await runJobs(true)
+  await runJobs()
 });
 
 async function runJobs(debug) {
