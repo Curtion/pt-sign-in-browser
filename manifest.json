@@ -8,7 +8,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": ["storage", "alarms","*://www.hdarea.co/*"],
+  "permissions": ["storage", "alarms","*://www.hdarea.co/*","*://kp.m-team.cc/*"],
   "background": {
     "scripts": ["background.js"]
   },
@@ -20,5 +20,6 @@
     "gecko": {
       "id": "curtion@126.com"
     }
-  }
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
