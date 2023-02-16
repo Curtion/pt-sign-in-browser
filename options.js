@@ -1,23 +1,32 @@
-function saveOptions(e) {
-  e.preventDefault();
-  browser.storage.local.set({
-    color: document.querySelector("#color").value
-  });
+function restoreOptions() {
+  chrome.storage.sync.get("jobs", res => {
+    const jobs = res.jobs
+    let hdarea = document.getElementById("hdarea")
+    let mteam = document.getElementById("mteam")
+    jobs.forEach(({ name, enable }) => {
+      if (name == "hdarea") {
+        hdarea.checked = enable
+      } else if (name == "mteam") {
+        mteam.checked = enable
+      }
+    })
+    hdarea.onchange = function (e) {
+      saveCheckbox(e, "hdarea", jobs)
+    }
+    mteam.onchange = function (e) {
+      saveCheckbox(e, "mteam", jobs)
+    }
+  })
 }
 
-function restoreOptions() {
-
-  function setCurrentChoice(result) {
-    document.querySelector("#color").value = result.color || "blue";
-  }
-
-  function onError(error) {
-    console.log(`Error: ${error}`);
-  }
-
-  var getting = browser.storage.local.get("color");
-  getting.then(setCurrentChoice, onError);
+function saveCheckbox(e, name, jobs) {
+  jobs.some(item => {
+    if (item.name == name) {
+      item.enable = e.target.checked
+      return true
+    }
+  })
+  chrome.storage.sync.set({ jobs })
 }
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
-document.querySelector("form").addEventListener("submit", saveOptions);

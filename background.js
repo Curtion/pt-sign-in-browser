@@ -21,13 +21,14 @@ chrome.alarms.onAlarm.addListener(async () => {
 
 async function runJobs(debug) {
   let jobs = await getJobs()
+  const currDate = new Date().getUTCDate()
   for (let item of jobs) {
-    if ((item.enable && item.status === 0) || debug) {
+    if ((item.enable && item.status !== currDate) || debug) {
       console.log('开始执行任务：' + item.name)
       try {
         await eval(item.name + '()')
         item.msg = '成功'
-        item.status = 1
+        item.status = currDate
         storage.set({ jobs })
       } catch (error) {
         item.status = 0

@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>PT站配置</title>
-    <link rel="stylesheet" href="options.css">
+    <link rel="stylesheet" href="options.css" />
   </head>
   <body>
-    <form>
-        <label>Border color<input type="text" id="color" ></label>
-        <button type="submit">Save</button>
-    </form>
+    <header>
+      <h1>PT自动签到站点配置</h1>
+    </header>
+    <div class="content">
+      <div class="item">
+        <div>
+          <div class="title">HDArea</div>
+          <div class="desc">每日自动签到</div>
+        </div>
+        <div class="checkbox">
+          <label for="hdarea">是否启用</label>
+          <input type="checkbox" name="hdarea" id="hdarea" />
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="title">M-Team</div>
+          <div class="desc">每日自动访问网页,无签到</div>
+        </div>
+        <div class="checkbox">
+          <label for="mteam">是否启用</label>
+          <input type="checkbox" name="mteam" id="mteam" />
+        </div>
+      </div>
+    </div>
     <script src="options.js"></script>
   </body>
 </html>
