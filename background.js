@@ -1,7 +1,7 @@
 chrome.alarms.create("jobs", { when: Date.now(), periodInMinutes: 100 });
 chrome.alarms.onAlarm.addListener(() => {
   console.log('ok')
-  sign()
+  // sign()
 });
 
 function sign() {
@@ -14,7 +14,7 @@ function sign() {
     body: data
   }
   fetch(url, options).then(res => {
-    console.log(res)
+    console.log(res.text())
   })
 }
 // https://www.hdarea.co/takelogin.php POST
